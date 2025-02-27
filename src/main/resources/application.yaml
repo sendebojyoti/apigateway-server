@@ -1,0 +1,52 @@
+spring:
+  main:
+    web-application-type : reactive
+  application:
+    name: apigateway-server
+  cloud:
+    gateway:
+      routes:
+        - id: ms-server
+          uri: lb://ms-server
+          predicates:
+            - Path=/products/**
+management:
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - info
+          - metrices
+          - circuitbreakers
+  health:
+    defaults:
+      enabled: true
+    readinessstate:
+      enabled: true
+    livenessstate:
+      enabled: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    healthcheck:
+      enabled: true
+server:
+  port: 8080
+
+
+logging:
+  level:
+    root: info
+    web: error
+
+
+
+
+
+
