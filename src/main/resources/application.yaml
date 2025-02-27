@@ -16,6 +16,8 @@ management:
       enabled: true
       show-details: always
   endpoints:
+    access:
+      default: UNRESTRICTED
     web:
       exposure:
         include:
@@ -23,13 +25,18 @@ management:
           - info
           - metrices
           - circuitbreakers
+  defaults:
+    metrics:
+      export:
+        enabled: true
   health:
     defaults:
-      enabled: true
+      enabled:
     readinessstate:
       enabled: true
     livenessstate:
       enabled: true
+
 eureka:
   client:
     service-url:
