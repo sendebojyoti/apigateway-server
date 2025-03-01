@@ -1,6 +1,6 @@
 spring:
   main:
-    web-application-type : reactive
+    web-application-type: reactive
   application:
     name: apigateway-server
   cloud:
