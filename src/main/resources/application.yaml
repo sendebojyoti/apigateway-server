@@ -40,7 +40,8 @@ management:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+    # defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://eureka-server:8761/eureka/
     healthcheck:
       enabled: true
 server:
@@ -51,9 +52,3 @@ logging:
   level:
     root: info
     web: error
-
-
-
-
-
-
